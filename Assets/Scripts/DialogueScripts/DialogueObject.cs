@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 public class DialogueObject : MonoBehaviour {
     public string fileName;
-    DialogueInfo[] allDialogueLines;
+    public DialogueInfo dialogueHead;
 
     void Start()
     {
@@ -13,16 +13,25 @@ public class DialogueObject : MonoBehaviour {
         {
             StreamReader reader = new StreamReader(fileName, Encoding.Default);
             string line = reader.ReadLine();
-            List<DialogueInfo> allLines = new List<DialogueInfo>();
+            DialogueInfo prevDInfo = null;
             while (line != null)
             {
                 DialogueInfo d = Dialogue.parseDialogueLine(line);
-                allLines.Add(d);
+
+                if (dialogueHead == null)
+                {
+                    dialogueHead = d;
+                }
+                else
+                {
+                    prevDInfo.addBranch(d);
+                }
+                prevDInfo = d;
                 line = reader.ReadLine();
             }
         } catch
         {
-
+            Debug.Log("The file " + fileName + " is invalid.");
         }
     }
 
