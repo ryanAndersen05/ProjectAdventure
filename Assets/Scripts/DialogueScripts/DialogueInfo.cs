@@ -4,14 +4,14 @@ using System.Collections.Generic;
 public class DialogueInfo {
     public string characterName;
     public string dialogueLine;
-    List<DialogueInfo> branches;
+    List<DialogueInfo> branches = new List<DialogueInfo>();
 
     public override string ToString()
     {
         return "Character Name: " + characterName + "\nDialogue: " + dialogueLine + "\n" ;
     }
 
-    public DialogueInfo getBranch(int i)
+    public DialogueInfo getBranch(int i = 0)
     {
         if (i > branches.Count || i < 0)
         {

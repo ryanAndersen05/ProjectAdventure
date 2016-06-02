@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 public class DialogueObject : MonoBehaviour {
     public string fileName;
-    public DialogueInfo dialogueHead;
+    public DialogueInfo currentDialogueInfo;
 
     void Start()
     {
@@ -18,9 +18,9 @@ public class DialogueObject : MonoBehaviour {
             {
                 DialogueInfo d = Dialogue.parseDialogueLine(line);
 
-                if (dialogueHead == null)
+                if (currentDialogueInfo == null)
                 {
-                    dialogueHead = d;
+                    currentDialogueInfo = d;
                 }
                 else
                 {
@@ -33,6 +33,11 @@ public class DialogueObject : MonoBehaviour {
         {
             Debug.Log("The file " + fileName + " is invalid.");
         }
+    }
+
+    public void next(int i = 0)
+    {
+        currentDialogueInfo = currentDialogueInfo.getBranch(i); 
     }
 
 }
