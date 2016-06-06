@@ -4,12 +4,13 @@ using System.Collections;
 
 public class DialogueUI : MonoBehaviour {
     public DialogueObject currentDialogue;
+    public Image speaker1;
     public Text characterName;
     public Text dialogueText;
 
 	// Use this for initialization
 	void Start () {
-        
+        Invoke("displayDialogueInfo", .1f);
 	}
 	
 	// Update is called once per frame
@@ -26,8 +27,19 @@ public class DialogueUI : MonoBehaviour {
 
     void displayDialogueInfo()
     {
+        if (characterName.text == "-End")
+        {
+            endDialogue();
+            return;
+        }
         characterName.text = currentDialogue.currentDialogueInfo.characterName;
         dialogueText.text = currentDialogue.currentDialogueInfo.dialogueLine;
+        displayPortraitImage();
+    }
+
+    void displayPortraitImage()
+    {
+
     }
 
     void advanceDialogue()
@@ -39,5 +51,11 @@ public class DialogueUI : MonoBehaviour {
     public void startDialogue()
     {
         displayDialogueInfo();
+        gameObject.SetActive(true);
+    }
+
+    public void endDialogue()
+    {
+        gameObject.SetActive(false);
     }
 }

@@ -4,6 +4,7 @@ using System.Collections.Generic;
 public class DialogueInfo {
     public string characterName;
     public string dialogueLine;
+    public int currentEmotion;
     List<DialogueInfo> branches = new List<DialogueInfo>();
 
     public override string ToString()

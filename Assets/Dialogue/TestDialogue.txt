@@ -1,6 +1,5 @@
-Philia|Hello!
-Subaki|Ugh, what do you want Philia?
-Philia|Nothing. Just wanna talk.
-Philia|Can't a sister talk to her own brother?
-Subaki|You and I both know you want something.
-Subaki|You never just come up and talk to me unless you need something. So just tell me.
+Philia|Hey!
+Phlai|Uhh do I know you?
+Philia|No, I'm just lost. See my brother and I were trying to find our way to Mooria
+Phlai|Never heard of it. 
+-End
