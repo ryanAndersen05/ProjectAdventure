@@ -10,7 +10,7 @@ public class DialogueUI : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-        Invoke("displayDialogueInfo", .1f);
+        Invoke("displayDialogueInfo", .01f);
 	}
 	
 	// Update is called once per frame
@@ -27,7 +27,7 @@ public class DialogueUI : MonoBehaviour {
 
     void displayDialogueInfo()
     {
-        if (characterName.text == "-End")
+        if (currentDialogue.currentDialogueInfo.characterName == "-End")
         {
             endDialogue();
             return;
@@ -39,7 +39,7 @@ public class DialogueUI : MonoBehaviour {
 
     void displayPortraitImage()
     {
-
+        speaker1.sprite = speaker1.GetComponent<PortraitUI>().emotionPortraits[currentDialogue.currentDialogueInfo.currentEmotion];
     }
 
     void advanceDialogue()

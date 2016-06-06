@@ -1,5 +1,7 @@
-Philia|Hey!
-Phlai|Uhh do I know you?
-Philia|No, I'm just lost. See my brother and I were trying to find our way to Mooria
-Phlai|Never heard of it. 
+Philia|Hello! I am so happy you're here!|Happy
+Philia|Really? I don't feel one way or the other.|Neutral
+Philia|I don't know what either of you are talking about! I hate all of you!|Mad
+Philia|Aww don't be so grumpy! Its nice to see all of you!|Happy
+Philia|Yeah whatever.|Neutral
+Philia|Shut up!|Mad
 -End
