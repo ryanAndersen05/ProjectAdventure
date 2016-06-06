@@ -8,25 +8,13 @@ public class PortraitUI : MonoBehaviour {
     public const int SAD_ID = 2;
     public const int MAD_ID = 3;
 
+    public string characterName = "Default";
     public Sprite[] emotionPortraits = new Sprite[10];
-    public bool isRight = false;
 
     int currentEmotion = NEUTRAL_ID;
-    Animator anim;
-    Image currentImage;
 
     void Start()
     {
-        anim = GetComponent<Animator>();
-        currentImage = GetComponent<Image>();
-        currentImage.sprite = emotionPortraits[currentEmotion];
-    }
-
-    
-
-    public void setImage(int id)
-    {
-
     }
 
     public void setEmotion(int emotionID)
@@ -34,10 +22,7 @@ public class PortraitUI : MonoBehaviour {
         currentEmotion = emotionID;
     }
 
-    public void setIsRight(bool isRight)
-    {
-        this.isRight = isRight;
-    }
+    
 
     public static int emotion2ID(string emotionName)
     {

@@ -1,7 +1,14 @@
-Philia|Hello! I am so happy you're here!|Happy
-Philia|Really? I don't feel one way or the other.|Neutral
-Philia|I don't know what either of you are talking about! I hate all of you!|Mad
-Philia|Aww don't be so grumpy! Its nice to see all of you!|Happy
-Philia|Yeah whatever.|Neutral
-Philia|Shut up!|Mad
+Philia|Hey Phlai! What are you up to?|Happy
+Phlai|Oh...Uhh..Philia, what are you doing here?|Neutral
+Philia|Nothing much. I just wanted to check up on you.|Neutral
+Phlai|You shouldn't be here right now! Go away|Mad
+Philia|I'm sorry, I didn't mean to bother you.|Neutral
+Phlai|You're not bothering me... I'm sorry.|Neutral
+Philia|So then what are you doing|Neutral
+Phlai|I'm making you waffles for your birthday!|Happy
+Philia|I love waffles!|Happy
+Phlai|And they are the best flavor of all!|Neutral
+Phlai|Chocolate!|Happy
+Philia|I hate chocolate|Mad
+Phlai|I know!|Happy
 -End

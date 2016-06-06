@@ -4,13 +4,12 @@ using System.Collections;
 
 public class DialogueUI : MonoBehaviour {
     public DialogueObject currentDialogue;
-    public Image speaker1;
+    public Image[] speakers = new Image[2];
     public Text characterName;
     public Text dialogueText;
 
 	// Use this for initialization
 	void Start () {
-        Invoke("displayDialogueInfo", .01f);
 	}
 	
 	// Update is called once per frame
@@ -32,14 +31,19 @@ public class DialogueUI : MonoBehaviour {
             endDialogue();
             return;
         }
-        characterName.text = currentDialogue.currentDialogueInfo.characterName;
+        displayCharacterName();
         dialogueText.text = currentDialogue.currentDialogueInfo.dialogueLine;
         displayPortraitImage();
     }
 
+    void displayCharacterName()
+    {
+        characterName.text = currentDialogue.currentDialogueInfo.characterName;
+    }
+
     void displayPortraitImage()
     {
-        speaker1.sprite = speaker1.GetComponent<PortraitUI>().emotionPortraits[currentDialogue.currentDialogueInfo.currentEmotion];
+        speakers[0].sprite = CharacterImageManager.getCharacter(characterName.text).emotionPortraits[currentDialogue.currentDialogueInfo.currentEmotion];
     }
 
     void advanceDialogue()
