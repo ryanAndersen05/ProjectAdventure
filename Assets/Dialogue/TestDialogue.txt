@@ -2,7 +2,7 @@ Philia|Hey Phlai! What are you up to?|Happy
 Phlai|Oh...Uhh..Philia, what are you doing here?|Neutral
 Philia|Nothing much. I just wanted to check up on you.|Neutral
 Phlai|You shouldn't be here right now! Go away|Mad
-Philia|I'm sorry, I didn't mean to bother you.|Neutral
+Philia|I'm sorry, I didn't mean to bother you.|Sad
 Phlai|You're not bothering me... I'm sorry.|Neutral
 Philia|So then what are you doing|Neutral
 Phlai|I'm making you waffles for your birthday!|Happy

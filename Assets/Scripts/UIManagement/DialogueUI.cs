@@ -6,10 +6,15 @@ public class DialogueUI : MonoBehaviour {
     public DialogueObject currentDialogue;
     public Image[] speakers = new Image[2];
     public Text characterName;
+    public RectTransform[] characterNamePositions = new RectTransform[2];
     public Text dialogueText;
+    public RectTransform backgroundName;
 
-	// Use this for initialization
-	void Start () {
+    PortraitUI previousInfo;
+    PortraitUI[] currentPortaits = new PortraitUI[2];
+
+    // Use this for initialization
+    void Start () {
 	}
 	
 	// Update is called once per frame
@@ -24,37 +29,59 @@ public class DialogueUI : MonoBehaviour {
         }
 	}
 
-    void displayDialogueInfo()
+    void displayDialogueInfo(int characterSide)
     {
         if (currentDialogue.currentDialogueInfo.characterName == "-End")
         {
             endDialogue();
             return;
         }
-        displayCharacterName();
+        displayCharacterName(characterSide);
         dialogueText.text = currentDialogue.currentDialogueInfo.dialogueLine;
-        displayPortraitImage();
+        displayPortraitImage(characterSide);
     }
 
-    void displayCharacterName()
+    int getCharacterRight()
     {
+        for (int i = 0; i < currentPortaits.Length; i++)
+        {
+            if (currentPortaits[i] == null)
+            {
+                currentPortaits[i] = CharacterImageManager.getCharacter(currentDialogue.currentDialogueInfo.characterName);
+                return i;
+            }
+            if (currentPortaits[i].characterName == currentDialogue.currentDialogueInfo.characterName)
+            {
+                currentPortaits[i] = CharacterImageManager.getCharacter(currentDialogue.currentDialogueInfo.characterName);
+
+                return i;
+            }
+
+        }
+        return 0;
+    }
+
+    void displayCharacterName(int characterSide)
+    {
+        backgroundName.position = characterNamePositions[characterSide].position;
         characterName.text = currentDialogue.currentDialogueInfo.characterName;
     }
 
-    void displayPortraitImage()
+    void displayPortraitImage(int characterSide)
     {
-        speakers[0].sprite = CharacterImageManager.getCharacter(characterName.text).emotionPortraits[currentDialogue.currentDialogueInfo.currentEmotion];
+        
+        speakers[characterSide].sprite = CharacterImageManager.getCharacter(characterName.text).emotionPortraits[currentDialogue.currentDialogueInfo.currentEmotion];
     }
 
     void advanceDialogue()
     {
         currentDialogue.next();
-        displayDialogueInfo();
+        displayDialogueInfo(getCharacterRight());
     }
 
     public void startDialogue()
     {
-        displayDialogueInfo();
+        displayDialogueInfo(getCharacterRight());
         gameObject.SetActive(true);
     }
 
