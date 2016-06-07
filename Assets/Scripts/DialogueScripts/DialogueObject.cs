@@ -6,11 +6,11 @@ using System.Collections.Generic;
 public class DialogueObject : MonoBehaviour {
     public string fileName;
     public DialogueInfo currentDialogueInfo;
+    public DialogueInfo resetPoint;
 
     void Awake()
     {
-        setUpDialogue();
-        print("I did the thing");
+        
     }
 
     public DialogueInfo setUpDialogue()
@@ -27,6 +27,7 @@ public class DialogueObject : MonoBehaviour {
                 if (currentDialogueInfo == null)
                 {
                     currentDialogueInfo = d;
+                    resetPoint = d;
                 }
                 else
                 {
@@ -41,6 +42,11 @@ public class DialogueObject : MonoBehaviour {
             Debug.Log("The file " + fileName + " is invalid.");
         }
         return currentDialogueInfo;
+    }
+
+    public void resetDialogue()
+    {
+        currentDialogueInfo = resetPoint;
     }
 
     public DialogueInfo getDialogueInfo()
