@@ -1,5 +1,5 @@
-Philia| |Neutral
-Phlai| |Neutral
+Philia||Neutral
+Phlai||Neutral
 Philia|Hey Phlai! What's up?|Happy
 Phlai|Ahh Philia! Go away!|Mad
 Philia|I'm sorry, I didn't mean to bother you|Sad
