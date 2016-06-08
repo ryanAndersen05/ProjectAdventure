@@ -9,7 +9,7 @@ public class DialogueInfo {
 
     public override string ToString()
     {
-        return "Character Name: " + characterName + "\nDialogue: " + dialogueLine + "\n" ;
+        return "Character Name: " + characterName + "\nDialogue: " + dialogueLine + "\nEmotion: " + currentEmotion;
     }
 
     public DialogueInfo getBranch(int i = 0)

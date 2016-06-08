@@ -12,9 +12,12 @@ public class DialogueUI : MonoBehaviour {
 
     PortraitUI previousInfo;
     PortraitUI[] currentPortaits = new PortraitUI[2];
+    PlayerController playerController;
 
     // Use this for initialization
-    void Start () {
+    void Awake () {
+        playerController = GameObject.FindObjectOfType<PlayerController>();
+        gameObject.SetActive(false);
 	}
 	
 	// Update is called once per frame
@@ -36,9 +39,17 @@ public class DialogueUI : MonoBehaviour {
             endDialogue();
             return;
         }
+        if (currentDialogue.currentDialogueInfo.dialogueLine.Length <= 1)
+        {
+            displayPortraitImage(characterSide);
+            advanceDialogue();
+            return;
+        }
+
         displayCharacterName(characterSide);
         dialogueText.text = currentDialogue.currentDialogueInfo.dialogueLine;
         displayPortraitImage(characterSide);
+        
     }
 
     int getCharacterRight()
@@ -47,6 +58,7 @@ public class DialogueUI : MonoBehaviour {
         {
             if (currentPortaits[i] == null)
             {
+
                 currentPortaits[i] = CharacterImageManager.getCharacter(currentDialogue.currentDialogueInfo.characterName);
                 return i;
             }
@@ -68,9 +80,8 @@ public class DialogueUI : MonoBehaviour {
     }
 
     void displayPortraitImage(int characterSide)
-    {
-        
-        speakers[characterSide].sprite = CharacterImageManager.getCharacter(characterName.text).emotionPortraits[currentDialogue.currentDialogueInfo.currentEmotion];
+    {        
+        speakers[characterSide].sprite = CharacterImageManager.getCharacter(currentDialogue.currentDialogueInfo.characterName).emotionPortraits[currentDialogue.currentDialogueInfo.currentEmotion];
     }
 
     void advanceDialogue()
@@ -82,11 +93,13 @@ public class DialogueUI : MonoBehaviour {
     public void startDialogue()
     {
         displayDialogueInfo(getCharacterRight());
+        playerController.enabled = false;
         gameObject.SetActive(true);
     }
 
     public void endDialogue()
     {
+        playerController.enabled = true;
         gameObject.SetActive(false);
     }
 }

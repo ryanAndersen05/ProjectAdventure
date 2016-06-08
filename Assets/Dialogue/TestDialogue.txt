@@ -1,14 +1,18 @@
-Philia|Hey Phlai! What are you up to?|Happy
-Phlai|Oh...Uhh..Philia, what are you doing here?|Neutral
-Philia|Nothing much. I just wanted to check up on you.|Neutral
-Phlai|You shouldn't be here right now! Go away|Mad
-Philia|I'm sorry, I didn't mean to bother you.|Sad
-Phlai|You're not bothering me... I'm sorry.|Neutral
-Philia|So then what are you doing|Neutral
-Phlai|I'm making you waffles for your birthday!|Happy
-Philia|I love waffles!|Happy
-Phlai|And they are the best flavor of all!|Neutral
-Phlai|Chocolate!|Happy
-Philia|I hate chocolate|Mad
+Philia| |Neutral
+Phlai| |Neutral
+Philia|Hey Phlai! What's up?|Happy
+Phlai|Ahh Philia! Go away!|Mad
+Philia|I'm sorry, I didn't mean to bother you|Sad
+Phlai|Ugh! Now you ruined the surprise!|Mad
+Philia|Surprise?|Neutral
+Phlai|Well yeah. Its your birthday and I was trying to make you waffles!|Neutral
+Philia|Oh! I love waffles!|Happy
 Phlai|I know!|Happy
+Phlai|And I made them the best flavor of all|Neutral
+Phlai|Chocolate!|Happy
+Philia|But I hate chocolate...|Mad
+Phlai|Right! More for me!|Happy
+Philia|....|Mad
+Phlai||Sad
+Philia|Well at least this means I don't have to get you anything for your birthday|Neutral
 -End

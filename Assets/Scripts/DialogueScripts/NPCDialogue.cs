@@ -4,6 +4,7 @@ using System.Collections;
 public class NPCDialogue : MonoBehaviour {
     DialogueUI dialogueUI;
     DialogueObject dObject;
+    PlayerController playerController;
     bool isActive;
 
     void Start()
@@ -14,11 +15,22 @@ public class NPCDialogue : MonoBehaviour {
 
     void OnTriggerEnter2D(Collider2D collider)
     {
-        isActive = true;
+        PlayerController p = collider.GetComponent<PlayerController>();
+        if (p != null)
+        {
+            isActive = true;
+            playerController = p;
+        }
     }
 
     void OnTriggerExit2D (Collider2D collider)
     {
+        PlayerController p = collider.GetComponent<PlayerController>();
+        if (p != null)
+        {
+            
+            isActive = false;
+        }
         isActive = false;
     }
 
