@@ -2,6 +2,8 @@
 using System.Collections;
 
 public class PauseManager : MonoBehaviour {
+    public GameObject pauseMenuObject;
+    bool isPaused;
 
 	// Use this for initialization
 	void Start () {
@@ -10,9 +12,23 @@ public class PauseManager : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-	    if(Input.GetKeyDown(KeyCode.Escape))
+	    if(Input.GetButtonDown("Pause"))
         {
-            Time.timeScale = (Time.timeScale + 1) % 2;
+            pauseGame();
         }
 	}
+
+    public void pauseGame()
+    {
+        isPaused = !isPaused;
+        if (isPaused)
+        {
+            Time.timeScale = 0;
+        }
+        else
+        {
+            Time.timeScale = 1;
+        }
+        pauseMenuObject.SetActive(isPaused);
+    }
 }
