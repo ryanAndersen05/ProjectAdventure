@@ -4,9 +4,8 @@ using System.Collections.Generic;
 public class Hitbox : MonoBehaviour {
     public int priority = 0;
     public float damage = 1;
-    public List<Hurtbox> allHurtboxes = new List<Hurtbox>();
 
-
+    HitboxManager hitManager;
 
     void OnEnable()
     {
@@ -17,16 +16,47 @@ public class Hitbox : MonoBehaviour {
     {
         Hurtbox hurtBox = collider.GetComponent<Hurtbox>();
         Hitbox hitBox = collider.GetComponent<Hitbox>();
-
+        if (hitBox != null)
+        {
+            if (hitBox.priority == priority)
+            {
+                clankHitbox();
+                return;
+            }
+            if (hitBox.priority > priority)
+            {
+                return;
+            }
+            if (hitBox.priority < priority)
+            {
+                return;
+            }
+        }
         if (hurtBox != null)
         {
-            allHurtboxes.Add(hurtBox);
-
+            attackHurtbox(hurtBox);
         }
+
+    }
+
+    protected virtual void attackHurtbox(Hurtbox hBox)
+    {
+        
+    }
+
+
+
+    void clankHitbox()
+    {
+
     }
 
     void refreshHitbox()
     {
-        allHurtboxes.Clear();
+    }
+
+    public void setHitboxManager(HitboxManager hManager)
+    {
+        this.hitManager = hManager;
     }
 }
