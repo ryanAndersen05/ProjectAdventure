@@ -7,11 +7,13 @@ public class JumpMechanics : MonoBehaviour
     public bool doubleJumpUsed = false;
     CustomGravity customGravity;
     Rigidbody2D rigid;
+    Animator anim;
 
     void Start()
     {
         customGravity = GetComponent<CustomGravity>();
         rigid = GetComponent<Rigidbody2D>();
+        anim = GetComponent<Animator>();
     }
 
     void Update()
@@ -20,6 +22,9 @@ public class JumpMechanics : MonoBehaviour
         {
             doubleJumpUsed = false;
         }
+        anim.SetBool("InAir", customGravity.inAir);
+        anim.SetBool("DoubleJump", doubleJumpUsed);
+
     }
 
     public void jump()
